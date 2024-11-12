@@ -2,7 +2,7 @@
 import { useSearchStore } from '@/store/searchStore'
 import SearchIcon from '../icons/SearchIcon.vue'
 import CloseIcon from '../icons/CloseIcon.vue'
-import { SearchCategory } from '@/common/constants'
+import { MIN_CHAR_INPUT, SearchCategory } from '@/common/constants'
 
 const searchStore = useSearchStore()
 </script>
@@ -37,6 +37,10 @@ const searchStore = useSearchStore()
         @keydown.escape="searchStore.searchParam = ''"
         autofocus
         autocomplete="off"
+        :class="{
+          'rounded-2xl': searchStore.searchParam.length < MIN_CHAR_INPUT,
+          'rounded-t-2xl': searchStore.searchParam.length >= MIN_CHAR_INPUT,
+        }"
       />
     </div>
   </div>
