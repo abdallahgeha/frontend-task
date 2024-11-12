@@ -15,7 +15,7 @@ const searchStore = useSearchStore()
 
 <template>
   <li
-    class="flex items-center gap-2 hover:bg-slate-200/80 focus:bg-slate-200/80 focus:outline-none p-4 first:rounded-none text-lg cursor-pointer"
+    class="flex items-center gap-2 hover:bg-slate-200/80 focus:bg-slate-200/80 focus:outline-none p-4 text-lg cursor-pointer"
   >
     <CityIcon v-if="result.type === SearchCategory.Cities" />
     <BookIcon v-else />

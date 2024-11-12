@@ -8,6 +8,7 @@ const searchStore = useSearchStore()
 <template>
   <ul class="flex flex-col bg-white shadow-2xl rounded-b-2xl text-darkblue text-lg overflow-hidden">
     <SearchResultItem
+      v-if="searchStore.searchResults.length > 0"
       v-for="result in searchStore.searchResults"
       @click="searchStore.searchParam = result.title"
       @keydown.enter="searchStore.searchParam = result.title"
