@@ -9,6 +9,10 @@ const searchStore = useSearchStore()
   <ul class="flex flex-col bg-white shadow-2xl rounded-b-2xl text-darkblue text-lg overflow-hidden">
     <SearchResultItem
       v-for="result in searchStore.searchResults"
+      @click="searchStore.searchParam = result.title"
+      @keydown.enter="searchStore.searchParam = result.title"
+      @keydown.space="searchStore.searchParam = result.title"
+      :tabindex="0"
       :result="result"
       :key="result.title"
     />

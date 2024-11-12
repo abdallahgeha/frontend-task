@@ -10,12 +10,16 @@ defineProps<{
 </script>
 
 <template>
-  <li class="flex items-center gap-2 border-mediumblue p-4 border-t first:rounded-none text-lg">
+  <li
+    class="flex items-center gap-2 border-mediumblue hover:bg-slate-200/80 focus:bg-slate-200/80 focus:font-semibold focus:outline-none p-4 first:rounded-none text-lg cursor-pointer"
+  >
     <CityIcon v-if="result.type === SearchCategory.Cities" />
     <BookIcon v-else />
     <div>
-      <p class="text-lg">{{ result.title }}</p>
-      <p v-if="!!result.subtitle" class="text-current/70 text-sm">{{ result.subtitle }}</p>
+      <p class="text-lg capitalize">{{ result.title }}</p>
+      <p v-if="!!result.subtitle" class="text-current/70 text-sm capitalize">
+        {{ result.subtitle }}
+      </p>
     </div>
   </li>
 </template>
