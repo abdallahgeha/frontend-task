@@ -1,7 +1,6 @@
 import { setActivePinia, createPinia } from 'pinia'
 import { useSearchStore } from '@/store/searchStore'
 import { SearchCategory } from '@/common/constants'
-import { beforeEach, describe, expect, it } from 'vitest'
 
 describe('useSearchStore', () => {
   beforeEach(() => {

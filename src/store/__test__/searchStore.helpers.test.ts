@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest'
 import { SearchCategory } from '@/common/constants'
 import { getBookResults, getCityResults } from '../searchStore.helpers'
 
