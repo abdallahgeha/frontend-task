@@ -34,6 +34,9 @@ const searchStore = useSearchStore()
               : 'Where to?'
         "
         class="p-4 pl-12 w-full text-2xl text-darkblue"
+        @keydown.escape="searchStore.searchParam = ''"
+        autofocus
+        autocomplete="off"
       />
     </div>
   </div>
