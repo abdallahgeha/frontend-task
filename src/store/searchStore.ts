@@ -1,19 +1,18 @@
 import { SearchCategory } from '@/common/constants'
-import type { SearchResult } from '@/common/types'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { getBookResults, getCityResults } from './searchStore.helpers'
 
 export const useSearchStore = defineStore('searchStore', () => {
   const searchCategory = ref<SearchCategory>(SearchCategory.All)
   const searchParam = ref('')
 
-  const searchResults: SearchResult[] = [
-    { title: 'citi 1', type: SearchCategory.Cities },
-    { title: 'citi 2', type: SearchCategory.Cities },
-    { title: 'citi 3', type: SearchCategory.Cities },
-    { title: 'Book 1', subtitle: 'author 2', type: SearchCategory.Books },
-    { title: 'Book 2', subtitle: 'author 2', type: SearchCategory.Books },
-  ]
+  const bookResults = computed(() => getBookResults(searchParam.value, searchCategory.value))
+  const cityResults = computed(() => getCityResults(searchParam.value, searchCategory.value))
+
+  const searchResults = computed(() => {
+    return [...bookResults.value, ...cityResults.value]
+  })
 
   return { searchParam, searchCategory, searchResults }
 })
